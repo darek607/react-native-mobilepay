@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C75168EC1EE4BD8000703F14 /* RNMobilePay.m in Sources */ = {isa = PBXBuildFile; fileRef = C75168E81EE4BD8000703F14 /* RNMobilePay.m */; };
 		C75168ED1EE4BD8000703F14 /* RNMobilePayHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C75168EA1EE4BD8000703F14 /* RNMobilePayHandler.m */; };
-		C755F9321EE585B800CFE7C2 /* libMobilePayManager1.8.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C755F92D1EE5858D00CFE7C2 /* libMobilePayManager1.8.1.a */; };
+		C75A875723FD651300B27A81 /* libMobilePayManager2.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75A875323FD651300B27A81 /* libMobilePayManager2.2.0.a */; };
 		C7A004481EE58974003C8D8E /* RCTConvert+MobilePayCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A004471EE58974003C8D8E /* RCTConvert+MobilePayCountry.m */; };
 		C7A0044B1EE58A09003C8D8E /* RCTConvert+MobilePayCaptureType.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A0044A1EE58A09003C8D8E /* RCTConvert+MobilePayCaptureType.m */; };
 /* End PBXBuildFile section */
@@ -32,11 +32,12 @@
 		C75168E91EE4BD8000703F14 /* RNMobilePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNMobilePay.h; sourceTree = "<group>"; };
 		C75168EA1EE4BD8000703F14 /* RNMobilePayHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNMobilePayHandler.m; sourceTree = "<group>"; };
 		C75168EB1EE4BD8000703F14 /* RNMobilePayHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNMobilePayHandler.h; sourceTree = "<group>"; };
-		C755F92D1EE5858D00CFE7C2 /* libMobilePayManager1.8.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobilePayManager1.8.1.a; sourceTree = "<group>"; };
-		C755F92E1EE5858D00CFE7C2 /* MobilePayCancelledPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobilePayCancelledPayment.h; sourceTree = "<group>"; };
-		C755F92F1EE5858D00CFE7C2 /* MobilePayManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobilePayManager.h; sourceTree = "<group>"; };
-		C755F9301EE5858D00CFE7C2 /* MobilePayPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobilePayPayment.h; sourceTree = "<group>"; };
-		C755F9311EE5858D00CFE7C2 /* MobilePaySuccessfulPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobilePaySuccessfulPayment.h; sourceTree = "<group>"; };
+		C75A875123FD651300B27A81 /* MobilePaySuccessfulPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePaySuccessfulPayment.h; sourceTree = "<group>"; };
+		C75A875223FD651300B27A81 /* MobilePayCancelledPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayCancelledPayment.h; sourceTree = "<group>"; };
+		C75A875323FD651300B27A81 /* libMobilePayManager2.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobilePayManager2.2.0.a; sourceTree = "<group>"; };
+		C75A875423FD651300B27A81 /* MobilePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayManager.h; sourceTree = "<group>"; };
+		C75A875523FD651300B27A81 /* MobilePayPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayPayment.h; sourceTree = "<group>"; };
+		C75A875623FD651300B27A81 /* MobilePayErrorPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayErrorPayment.h; sourceTree = "<group>"; };
 		C7A004461EE58974003C8D8E /* RCTConvert+MobilePayCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+MobilePayCountry.h"; sourceTree = "<group>"; };
 		C7A004471EE58974003C8D8E /* RCTConvert+MobilePayCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+MobilePayCountry.m"; sourceTree = "<group>"; };
 		C7A004491EE58A09003C8D8E /* RCTConvert+MobilePayCaptureType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+MobilePayCaptureType.h"; sourceTree = "<group>"; };
@@ -48,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C755F9321EE585B800CFE7C2 /* libMobilePayManager1.8.1.a in Frameworks */,
+				C75A875723FD651300B27A81 /* libMobilePayManager2.2.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,11 +67,11 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				C75A875023FD651300B27A81 /* MobilePayManager */,
 				C7A004491EE58A09003C8D8E /* RCTConvert+MobilePayCaptureType.h */,
 				C7A0044A1EE58A09003C8D8E /* RCTConvert+MobilePayCaptureType.m */,
 				C7A004461EE58974003C8D8E /* RCTConvert+MobilePayCountry.h */,
 				C7A004471EE58974003C8D8E /* RCTConvert+MobilePayCountry.m */,
-				C755F92C1EE5858D00CFE7C2 /* MobilePayManager */,
 				C75168E81EE4BD8000703F14 /* RNMobilePay.m */,
 				C75168E91EE4BD8000703F14 /* RNMobilePay.h */,
 				C75168EA1EE4BD8000703F14 /* RNMobilePayHandler.m */,
@@ -79,14 +80,15 @@
 			);
 			sourceTree = "<group>";
 		};
-		C755F92C1EE5858D00CFE7C2 /* MobilePayManager */ = {
+		C75A875023FD651300B27A81 /* MobilePayManager */ = {
 			isa = PBXGroup;
 			children = (
-				C755F92D1EE5858D00CFE7C2 /* libMobilePayManager1.8.1.a */,
-				C755F92E1EE5858D00CFE7C2 /* MobilePayCancelledPayment.h */,
-				C755F92F1EE5858D00CFE7C2 /* MobilePayManager.h */,
-				C755F9301EE5858D00CFE7C2 /* MobilePayPayment.h */,
-				C755F9311EE5858D00CFE7C2 /* MobilePaySuccessfulPayment.h */,
+				C75A875123FD651300B27A81 /* MobilePaySuccessfulPayment.h */,
+				C75A875223FD651300B27A81 /* MobilePayCancelledPayment.h */,
+				C75A875323FD651300B27A81 /* libMobilePayManager2.2.0.a */,
+				C75A875423FD651300B27A81 /* MobilePayManager.h */,
+				C75A875523FD651300B27A81 /* MobilePayPayment.h */,
+				C75A875623FD651300B27A81 /* MobilePayErrorPayment.h */,
 			);
 			path = MobilePayManager;
 			sourceTree = "<group>";
@@ -130,6 +132,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;

@@ -24,7 +24,7 @@ RCT_EXPORT_METHOD(setup:(NSString *)merchantId country:(MobilePayCountry)country
     [[RNMobilePayHandler sharedInstance] setup:merchantId country:country merchantUrlScheme:merchantUrlScheme];
 }
 
-RCT_EXPORT_METHOD(createPayment:(NSString *)orderId productPrice:(float)productPrice resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(createPayment:(NSString *)orderId productPrice:(nonnull NSNumber *)productPrice resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 {
     [[RNMobilePayHandler sharedInstance] createPayment:orderId productPrice:productPrice resolve:resolve reject:reject];
 }
@@ -32,11 +32,6 @@ RCT_EXPORT_METHOD(createPayment:(NSString *)orderId productPrice:(float)productP
 RCT_EXPORT_METHOD(setTimeoutSeconds:(int)seconds)
 {
     [[MobilePayManager sharedInstance] setTimeoutSeconds:seconds];
-}
-
-RCT_EXPORT_METHOD(setReturnSeconds:(int)seconds)
-{
-    [[MobilePayManager sharedInstance] setReturnSeconds:seconds];
 }
 
 RCT_EXPORT_METHOD(setCountry:(MobilePayCountry)county)
@@ -56,16 +51,13 @@ RCT_EXPORT_METHOD(setMerchantId:(NSString *)merchantId)
 
 - (NSDictionary *)constantsToExport {
     return @{
-      @"CAPTURE_TYPE_CAPTURE": @(MobilePayCaptureType_Capture),
       @"CAPTURE_TYPE_RESERVE": @(MobilePayCaptureType_Reserve),
       @"CAPTURE_TYPE_PARTIALCAPTURE": @(MobilePayCaptureType_PartialCapture),
              
       @"COUNTRY_DENMARK": @(MobilePayCountry_Denmark),
-      @"COUNTRY_NORWAY": @(MobilePayCountry_Norway),
       @"COUNTRY_FINLAND": @(MobilePayCountry_Finland),
              
       @"isMobilePayInstalledDenmark": @([[MobilePayManager sharedInstance] isMobilePayInstalled:MobilePayCountry_Denmark]),
-      @"isMobilePayInstalledNorway": @([[MobilePayManager sharedInstance] isMobilePayInstalled:MobilePayCountry_Norway]),
       @"isMobilePayInstalledFinland": @([[MobilePayManager sharedInstance] isMobilePayInstalled:MobilePayCountry_Finland]),
     };
 }

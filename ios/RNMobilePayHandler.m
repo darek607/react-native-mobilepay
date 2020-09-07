@@ -54,7 +54,7 @@
     _merchantId = merchantId;
 }
 
-- (void)createPayment:(NSString *)orderId productPrice:(float)productPrice resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject
+- (void)createPayment:(NSString *)orderId productPrice:(NSDecimalNumber *)productPrice resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject
 {
     if (!_hasBeenSetup) {
         reject(@"-1", @"MobilePay has not been setup. Please call setup(merchantId, country, merchantUrlScheme) first.", nil);
@@ -68,10 +68,10 @@
     _resolveBlock = [resolve copy];
     _rejectBlock = [reject copy];
 
-    [[MobilePayManager sharedInstance] beginMobilePaymentWithPayment:payment error:^(NSError * _Nonnull error) {
+    [[MobilePayManager sharedInstance] beginMobilePaymentWithPayment:payment error:^(MobilePayErrorPayment * _Nonnull error) {
         NSLog(@"beginMobilePaymentWithPayment - error %@", error);
         
-        [self handleOnError:error];
+        [self handleOnError:error.error];
         [self cleanupHandlers];
     }];
 }
@@ -85,7 +85,7 @@
     [[MobilePayManager sharedInstance] handleMobilePayPaymentWithUrl:url success:^(MobilePaySuccessfulPayment * _Nullable mobilePaySuccessfulPayment) {
         NSString *orderId = mobilePaySuccessfulPayment.orderId;
         NSString *transactionId = mobilePaySuccessfulPayment.transactionId;
-        NSString *amountWithdrawnFromCard = [NSString stringWithFormat:@"%f",mobilePaySuccessfulPayment.amountWithdrawnFromCard];
+        NSString *amountWithdrawnFromCard = [NSString stringWithFormat:@"%@",mobilePaySuccessfulPayment.amountWithdrawnFromCard];
         NSLog(@"MobilePay purchase succeeded: Your have now paid for order with id '%@' and MobilePay transaction id '%@' and the amount withdrawn from the card is: '%@'", orderId, transactionId,amountWithdrawnFromCard);
 
         _resolveBlock(@{
@@ -97,10 +97,10 @@
         });
 
         [self cleanupHandlers];
-    } error:^(NSError * _Nonnull error) {
-        NSDictionary *dict = error.userInfo;
+    } error:^(MobilePayErrorPayment * _Nonnull error) {
+        NSDictionary *dict = error.error.userInfo;
         NSString *errorMessage = [dict valueForKey:NSLocalizedFailureReasonErrorKey];
-        NSLog(@"MobilePay purchase failed:  Error code '%li' and message '%@' %@",(long)error.code, errorMessage, error);
+        NSLog(@"MobilePay purchase failed:  Error code '%li' and message '%@' %@",(long)error.error.code, errorMessage, error);
 
 
         //TODO: show an appropriate error message to the user. Check MobilePayManager.h for a complete description of the error codes
@@ -110,7 +110,7 @@
         //    NSLog(@"You must update your MobilePay app");
         //}
 
-        [self handleOnError:error];
+        [self handleOnError:error.error];
         [self cleanupHandlers];
 
     } cancel:^(MobilePayCancelledPayment * _Nullable mobilePayCancelledPayment) {
