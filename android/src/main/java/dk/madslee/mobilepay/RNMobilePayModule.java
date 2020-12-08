@@ -19,6 +19,7 @@ import java.util.Map;
 
 public class RNMobilePayModule extends ReactContextBaseJavaModule {
 
+    private static final String TEST_APP_PACKAGE = "dk.danskebank.p2p.ui.login.LoginActivity";
     private static final int MOBILEPAY_PAYMENT_REQUEST_CODE = 1001;
     private boolean mHasBeenSetup = false;
     private String mMerchantId = "APPDK0000000000";
@@ -108,6 +109,10 @@ public class RNMobilePayModule extends ReactContextBaseJavaModule {
         MobilePay.getInstance().init(mMerchantId, mCountry);
         MobilePay.getInstance().setCaptureType(mCaptyreType);
         MobilePay.getInstance().setTimeoutSeconds(mTimeoutSeconds);
+
+        if(orderId.startsWith("test")) {
+            MobilePay.getInstance().setPackageName(TEST_APP_PACKAGE);
+        }
 
         mPaymentPromise = promise;
 
